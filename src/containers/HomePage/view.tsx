@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { createStructuredSelector } from 'reselect'
@@ -7,25 +7,44 @@ import { useInjectReducer } from '@/utils/injectReducer'
 import { useInjectSaga } from '@/utils/injectSaga'
 import reducer from './store/reducers'
 import saga from './store/sagas'
+import { getUsersListRequested } from './store/actions'
 
-import { users } from './constants/users'
 import Pagination from '@/components/Pagination'
 
 import noImg from '@/assets/images/no_image.png'
+import { selectUsersList } from './store/selectors'
 
 export const PERPAGE = 4
 
 const key = 'users'
 
+interface User {
+  avatar: String
+  email: String
+  id: number
+  name: String
+  phone: String
+}
+
+interface Props {
+  getUsersListRequested(): any
+  usersList: any
+}
 export function HomePage(props: any) {
   useInjectReducer({ key, reducer })
   useInjectSaga({ key, saga })
+
+  const { getUsersListRequested, usersList } = props
 
   const [currentPage, setCurrentPage] = useState(1)
 
   const handleSetCurrentPage = (page: number = 1) => {
     setCurrentPage(page)
   }
+
+  useEffect(() => {
+    getUsersListRequested()
+  }, [getUsersListRequested])
 
   return (
     <div className="content-wrapper">
@@ -57,7 +76,7 @@ export function HomePage(props: any) {
                   </thead>
                   <tbody>
                     {
-                      users.slice(currentPage * PERPAGE, currentPage * PERPAGE + PERPAGE).map((user: any) => {
+                      usersList.slice((currentPage-1) * PERPAGE, (currentPage-1) * PERPAGE + PERPAGE).map((user: User) => {
                         return (
                           <tr key={user.id}>
                             <td className="py-1">
@@ -79,13 +98,13 @@ export function HomePage(props: any) {
                   </tbody>
                 </table>
                 {
-                  users.length > 0 && (
+                  usersList.length > 0 && (
                     <Pagination
                       handleSubmit={handleSetCurrentPage}
                       currentPage={currentPage}
-                      total={users.length}
-                      limitPagination={5}
-                      rangeNumb={4}
+                      total={usersList.length}
+                      limitPagination={PERPAGE}
+                      rangeNumb={Math.floor(usersList.length/PERPAGE)}
                     />
                   )
                 }
@@ -99,9 +118,11 @@ export function HomePage(props: any) {
 }
 
 const mapStateToProps = createStructuredSelector({
+  usersList: selectUsersList()
 })
 
 const withConnect = connect(mapStateToProps, {
+  getUsersListRequested
 })
 
 export default compose(withConnect, memo)(HomePage)

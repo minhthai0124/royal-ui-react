@@ -3,10 +3,10 @@ import axiosClient from '@/utils/axios'
 // import { ErrorsObject } from '@/containers/Auth/Login/types'
 
 export const getUsersListRequestedAPI = () => {
-  return axiosClient.get(`/players/picked/all`).then(
+  return axiosClient.get(`/users`).then(
     res => ({
       status: true,
-      data: res.data.data
+      data: res.data
     }),
     err => ({
       status: false,

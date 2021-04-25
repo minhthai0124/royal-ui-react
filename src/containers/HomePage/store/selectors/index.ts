@@ -2,12 +2,16 @@ import { createSelector } from 'reselect'
 import { get } from 'lodash'
 import { initialState } from '../reducers'
 
-const selectTop = (state: any) => get(state, 'top') || initialState
+const selectHomePage = (state: any) => get(state, 'users') || initialState
 
 const selectError = () =>
-  createSelector(selectTop, selectTop => get(selectTop, 'errors'))
+  createSelector(selectHomePage, selectHomePage => get(selectHomePage, 'errors'))
+
+const selectUsersList = () =>
+  createSelector(selectHomePage, selectHomePage => get(selectHomePage, 'users'))
 
 export {
-  selectTop,
-  selectError
+  selectHomePage,
+  selectError,
+  selectUsersList
 }

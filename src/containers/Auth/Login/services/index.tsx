@@ -4,7 +4,7 @@ import { ErrorsObject } from '../types'
 export const postLogin = (data: object) => {
   return axiosClient.post('/login', data).then(res => ({
     status: true,
-    data: res.data.data
+    data: res.data
   }), err => {
     return {
       status: false,
@@ -16,7 +16,7 @@ export const postLogin = (data: object) => {
 export const postLogout = () => {
   return axiosClient.post('/logout', {}).then(res => ({
     status: true,
-    data: res.data.data
+    data: res.data
   }), err => {
     return {
       status: false,

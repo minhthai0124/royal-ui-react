@@ -142,7 +142,7 @@ class AxiosClient {
             CookieHandlerInstance.removeCookie('username')
             store.dispatch(
               push({
-                pathname: '/sign-in',
+                pathname: '/login',
                 state: {
                   redirect: {
                     pathname: window.location.pathname,

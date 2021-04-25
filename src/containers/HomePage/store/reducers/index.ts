@@ -15,11 +15,12 @@ const identificationReduce = (state = initialState, action: any) =>
         draft.isRequesting = true
         draft.error = {}
         break
-      case types.GET_USER_LIST_SUCCEED:
+      case types.GET_USER_LIST_SUCCEED: {
         draft.isRequesting = false
         draft.error = {}
         draft.users = action.payload
         break
+      }
       case types.GET_USER_LIST_FAILED:
         draft.isRequesting = false
         draft.error = action.payload

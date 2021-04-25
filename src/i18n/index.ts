@@ -1,8 +1,8 @@
 import { initReactI18next } from 'react-i18next'
 import i18n, { i18n as i18nInterface } from 'i18next'
 
-import axiosClient from '../utils/axios'
-import { LanguageEndpointInterface } from './types'
+// import axiosClient from '../utils/axios'
+// import { LanguageEndpointInterface } from './types'
 export const DEFAULT_LOCALE = localStorage.getItem('language') || 'ja'
 
 export const loadLanguageAsync = async (language: string, i18n: i18nInterface) => {
@@ -11,27 +11,27 @@ export const loadLanguageAsync = async (language: string, i18n: i18nInterface) =
     return i18n.changeLanguage(language)
   }
 
-  const languageEndpoints = Object.assign({}, process.env.LANGUAGES) as LanguageEndpointInterface
+  // const languageEndpoints = Object.assign({}, process.env.LANGUAGES) as LanguageEndpointInterface
 
-  return await axiosClient.get(languageEndpoints[language.toUpperCase()], '', {
-      transformRequest: [ function (data: any, headers: any) {
-        delete headers.common
-        return data
-      } ],
-    })
-    .then((response) => {
-      if (response.statusText === 'OK') {
-        i18n.addResourceBundle(language, 'default', response.data)
-        return setI18nLanguage(language, i18n)
-      }
-    })
-    .catch(() => {
-      const data = loadLocalLanguage(language, i18n)
-      data.then((value) => {
-        i18n.addResourceBundle(language, 'default', value.default)
-        return setI18nLanguage(language, i18n)
-      })
-    })
+  // return await axiosClient.get(languageEndpoints[language.toUpperCase()], '', {
+  //     transformRequest: [ function (data: any, headers: any) {
+  //       delete headers.common
+  //       return data
+  //     } ],
+  //   })
+  //   .then((response) => {
+  //     if (response.statusText === 'OK') {
+  //       i18n.addResourceBundle(language, 'default', response.data)
+  //       return setI18nLanguage(language, i18n)
+  //     }
+  //   })
+  //   .catch(() => {
+  //     const data = loadLocalLanguage(language, i18n)
+  //     data.then((value) => {
+  //       i18n.addResourceBundle(language, 'default', value.default)
+  //       return setI18nLanguage(language, i18n)
+  //     })
+  //   })
 }
 
 export const setI18nLanguage = function (language: string, i18n: i18nInterface) {

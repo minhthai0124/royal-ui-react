@@ -21,6 +21,5 @@ export interface ErrorsObject {
 }
 
 export interface DataSuccess {
-  access_token: string
-  expires_on: string
+  token: string
 }

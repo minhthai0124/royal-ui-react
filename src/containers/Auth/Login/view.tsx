@@ -79,6 +79,7 @@ function LoginView({ login, isRequesting }: Props) {
                     <div className="form-check">
                       <label className="form-check-label text-muted">
                         <input type="checkbox" className="form-check-input" {...register("isSave")} />
+                        <i className="input-helper"></i>
                         Keep me signed in
                       </label>
                     </div>

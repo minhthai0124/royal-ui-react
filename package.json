@@ -71,7 +71,8 @@
     "start": "npm run dev",
     "lint:js": "eslint --ext .ts,.tsx src",
     "lint:style": "stylelint \"**/*.scss\"",
-    "build": "node --max-old-space-size=4096 build/build.js"
+    "build": "node --max-old-space-size=4096 build/build.js",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -137,6 +138,7 @@
     "postcss-url": "^8.0.0",
     "prettier": "^2.1.2",
     "react-dev-utils": "^9.0.1",
+    "react-testing-library": "^8.0.1",
     "rimraf": "^2.6.3",
     "sass-loader": "10.1.1",
     "semver": "^6.2.0",

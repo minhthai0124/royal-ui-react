@@ -11,6 +11,7 @@ export function getUsersListRequested() {
 export function getUsersListSucceed(data: any): any {
   return {
     type: types.GET_USER_LIST_SUCCEED,
+    payload: data
   }
 }
 
