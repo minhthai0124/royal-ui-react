@@ -1,77 +1,77 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { createStructuredSelector } from 'reselect'
+import { Link } from 'react-router-dom'
 
 const SideBar = () => {
   return (
     <nav className="sidebar sidebar-offcanvas" id="sidebar">
     <ul className="nav">
       <li className="nav-item">
-        <a className="nav-link" href="../../index.html">
+        <Link className="nav-link" to='#'>
           <i className="ti-shield menu-icon"></i>
           <span className="menu-title">Dashboard</span>
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <Link className="nav-link" data-toggle="collapse" to="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i className="ti-palette menu-icon"></i>
           <span className="menu-title">UI Elements</span>
           <i className="menu-arrow"></i>
-        </a>
+        </Link>
         <div className="collapse" id="ui-basic">
           <ul className="nav flex-column sub-menu">
-            <li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-            <li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+            <li className="nav-item"> <Link className="nav-link" to="#">Buttons</Link></li>
+            <li className="nav-item"> <Link className="nav-link" to="#">Typography</Link></li>
           </ul>
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../../pages/forms/basic_elements.html">
+        <Link className="nav-link" to="#">
           <i className="ti-layout-list-post menu-icon"></i>
           <span className="menu-title">Form elements</span>
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../../pages/charts/chartjs.html">
+        <Link className="nav-link" to="#">
           <i className="ti-pie-chart menu-icon"></i>
           <span className="menu-title">Charts</span>
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../../pages/tables/basic-table.html">
+        <Link className="nav-link" to="#">
           <i className="ti-view-list-alt menu-icon"></i>
           <span className="menu-title">Tables</span>
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../../pages/icons/themify.html">
+        <Link className="nav-link" to="#">
           <i className="ti-star menu-icon"></i>
           <span className="menu-title">Icons</span>
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+        <Link className="nav-link" data-toggle="collapse" to="#auth" aria-expanded="false" aria-controls="auth">
           <i className="ti-user menu-icon"></i>
           <span className="menu-title">User Pages</span>
           <i className="menu-arrow"></i>
-        </a>
+        </Link>
         <div className="collapse" id="auth">
           <ul className="nav flex-column sub-menu">
-            <li className="nav-item"> <a className="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-            <li className="nav-item"> <a className="nav-link" href="../../pages/samples/login-2.html"> Login 2 </a></li>
-            <li className="nav-item"> <a className="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-            <li className="nav-item"> <a className="nav-link" href="../../pages/samples/register-2.html"> Register 2 </a></li>
-            <li className="nav-item"> <a className="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
+            <li className="nav-item"> <Link className="nav-link" to="#"> Login </Link></li>
+            <li className="nav-item"> <Link className="nav-link" to="#"> Login 2 </Link></li>
+            <li className="nav-item"> <Link className="nav-link" to="#"> Register </Link></li>
+            <li className="nav-item"> <Link className="nav-link" to="#"> Register 2 </Link></li>
+            <li className="nav-item"> <Link className="nav-link" to="#"> Lockscreen </Link></li>
           </ul>
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../../documentation/documentation.html">
+        <Link className="nav-link" to="#">
           <i className="ti-write menu-icon"></i>
           <span className="menu-title">Documentation</span>
-        </a>
+        </Link>
       </li>
     </ul>
   </nav>

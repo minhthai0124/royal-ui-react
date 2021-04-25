@@ -139,7 +139,7 @@ class AxiosClient {
             dataErrors.errors[0].message === 'UNAUTHENTICATED'
           ) {
             CookieHandlerInstance.removeCookie('token')
-            CookieHandlerInstance.removeCookie('email')
+            CookieHandlerInstance.removeCookie('username')
             store.dispatch(
               push({
                 pathname: '/sign-in',

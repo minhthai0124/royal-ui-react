@@ -36,8 +36,7 @@ function LoginView({ login, isRequesting }: Props) {
 
   const { register, handleSubmit } = useForm<User>();
   const onSubmit = (data: User) => {
-    console.log('data', data);
-    login(data, ()=> {})
+    login(data, () => { })
     // login(user, setErrors)
   }
 
@@ -56,10 +55,10 @@ function LoginView({ login, isRequesting }: Props) {
                 <form className="pt-3" onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-group">
                     <input
-                      type="email"
+                      type="text"
                       className="form-control form-control-lg" id="exampleInputEmail1"
                       placeholder="Username"
-                      {...register("email")}
+                      {...register("username")}
                     />
                   </div>
                   <div className="form-group">
@@ -79,7 +78,7 @@ function LoginView({ login, isRequesting }: Props) {
                   <div className="my-2 d-flex justify-content-between align-items-center">
                     <div className="form-check">
                       <label className="form-check-label text-muted">
-                        <input type="checkbox" className="form-check-input" {...register("isSave")}/>
+                        <input type="checkbox" className="form-check-input" {...register("isSave")} />
                         Keep me signed in
                       </label>
                     </div>
@@ -91,7 +90,7 @@ function LoginView({ login, isRequesting }: Props) {
                     </button>
                   </div>
                   <div className="text-center mt-4 font-weight-light">
-                    {"Don't have an account?"} <Link to="register.html" className="text-primary">Create</Link>
+                    {"Don't have an account?"} <Link to="/register" className="text-primary">Create</Link>
                   </div>
                 </form>
               </div>
@@ -108,6 +107,6 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: makeSelectIsRequesting()
 })
 
-const withConnect = connect(mapStateToProps, {login})
+const withConnect = connect(mapStateToProps, { login })
 
 export default compose(withConnect, memo)(LoginView)

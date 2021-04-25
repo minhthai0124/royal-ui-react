@@ -1,4 +1,4 @@
-import { AuthenticateRoute, PublicRoute } from '../components/routes'
+import { AuthenticateRoute } from '../components/routes'
 import {
   LoginView,
   RegistrationView
@@ -21,7 +21,7 @@ export default [
     path: '/register',
     title: 'Register',
     component: RegistrationView,
-    route: PublicRoute,
+    route: AuthenticateRoute,
     roles: [],
     permission: [],
     breadcrumb: 'Register',

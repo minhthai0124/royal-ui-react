@@ -1,4 +1,4 @@
-import { PublicRoute } from '../components/routes'
+import { AuthenticatedRoute } from '../components/routes'
 import { HomePageView } from '../views'
 import { MainLayout } from '@/layouts'
 
@@ -7,7 +7,7 @@ export default [
     path: '/',
     title: 'Users',
     component: HomePageView,
-    route: PublicRoute,
+    route: AuthenticatedRoute,
     roles: [],
     permission: [],
     exact: true,

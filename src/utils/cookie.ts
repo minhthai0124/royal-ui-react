@@ -47,8 +47,9 @@ class CookieHandler {
       const parts = value.split(`; ${name}=`)
       if (parts.length === 2) {
         const partsPop = parts.pop()
-        if (partsPop)
+        if (partsPop) {
           return this.cryptoHandler.decrypt(partsPop) // Decrypt for get original value
+        }
       }
       return false
     } catch {
@@ -64,6 +65,7 @@ class CookieHandler {
     }
     return false
   }
+
 }
 
 export default CookieHandler.instance

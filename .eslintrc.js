@@ -14,7 +14,7 @@ module.exports = {
   rules: {
     'jsx-a11y/href-no-hash': 'off',
     'react/no-string-refs': 'off',
-    'no-console': 'off'
+    'no-console': 'off',
     // "prettier/prettier": [
     //   "warn",
     //   {

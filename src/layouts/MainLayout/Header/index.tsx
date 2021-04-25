@@ -78,7 +78,7 @@ const Header = (props: Props) => {
             </Link>
             <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
               <p className="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <div className="item-thumbnail">
                   <img src={face4} alt="" className="profile-pic" />
                 </div>
@@ -90,7 +90,7 @@ const Header = (props: Props) => {
                   </p>
                 </div>
               </a>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <div className="item-thumbnail">
                   <img src={face2} alt="" className="profile-pic" />
                 </div>
@@ -102,7 +102,7 @@ const Header = (props: Props) => {
                   </p>
                 </div>
               </a>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <div className="item-thumbnail">
                   <img src={face3} alt="" className="profile-pic" />
                 </div>
@@ -123,7 +123,7 @@ const Header = (props: Props) => {
             </Link>
             <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
               <p className="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <div className="item-thumbnail">
                   <div className="item-icon bg-success">
                     <i className="ti-info-alt mx-0"></i>
@@ -136,7 +136,7 @@ const Header = (props: Props) => {
                   </p>
                 </div>
               </a>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <div className="item-thumbnail">
                   <div className="item-icon bg-warning">
                     <i className="ti-settings mx-0"></i>
@@ -149,7 +149,7 @@ const Header = (props: Props) => {
                   </p>
                 </div>
               </a>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <div className="item-thumbnail">
                   <div className="item-icon bg-info">
                     <i className="ti-user mx-0"></i>
@@ -169,11 +169,11 @@ const Header = (props: Props) => {
               <img src={face28} alt="profile" />
             </Link>
             <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <i className="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a className="dropdown-item">
+              <a className="dropdown-item" href="/">
                 <i className="ti-power-off text-primary"></i>
                 Logout
               </a>

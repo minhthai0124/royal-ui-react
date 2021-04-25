@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { createStructuredSelector } from 'reselect'
@@ -9,6 +9,11 @@ import reducer from './store/reducers'
 import saga from './store/sagas'
 
 import { users } from './constants/users'
+import Pagination from '@/components/Pagination'
+
+import noImg from '@/assets/images/no_image.png'
+
+export const PERPAGE = 4
 
 const key = 'users'
 
@@ -16,12 +21,11 @@ export function HomePage(props: any) {
   useInjectReducer({ key, reducer })
   useInjectSaga({ key, saga })
 
-  // const {
-  //   isRequesting
-  // } = props
-  // const isAuthenticated = CookieHandlerInstance.checkCookie(
-  //   process.env.COOKIE_NAME || 'token'
-  // )
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const handleSetCurrentPage = (page: number = 1) => {
+    setCurrentPage(page)
+  }
 
   return (
     <div className="content-wrapper">
@@ -53,11 +57,11 @@ export function HomePage(props: any) {
                   </thead>
                   <tbody>
                     {
-                      users.map((user: any) => {
+                      users.slice(currentPage * PERPAGE, currentPage * PERPAGE + PERPAGE).map((user: any) => {
                         return (
                           <tr key={user.id}>
                             <td className="py-1">
-                              <img src={user.avatar} alt="" />
+                              <img src={noImg} alt="" />
                             </td>
                             <td>
                               {user.name}
@@ -74,6 +78,17 @@ export function HomePage(props: any) {
                     }
                   </tbody>
                 </table>
+                {
+                  users.length > 0 && (
+                    <Pagination
+                      handleSubmit={handleSetCurrentPage}
+                      currentPage={currentPage}
+                      total={users.length}
+                      limitPagination={5}
+                      rangeNumb={4}
+                    />
+                  )
+                }
               </div>
             </div>
           </div>

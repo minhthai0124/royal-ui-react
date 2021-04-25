@@ -1,10 +1,13 @@
 // Needed for redux-saga es6 generator support
-// import '@babel/polyfill'
+// import "@babel/polyfill"
 
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 import { ConnectedRouter } from "connected-react-router"
+import Enzyme from "enzyme"
+import Adapter from "enzyme-adapter-react-16"
+
 import "./assets/scss/style.scss"
 
 import App from "./containers/App"
@@ -15,6 +18,8 @@ import i18n, { loadLanguageAsync, DEFAULT_LOCALE } from "./i18n"
 const initialState = {}
 export const store = configureStore(initialState, history)
 const MOUNT_NODE = document.getElementById("app")
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const render = () => {
   ReactDOM.render(

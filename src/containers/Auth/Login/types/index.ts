@@ -4,7 +4,7 @@ export interface Login {
 }
 
 export interface User {
-  email: string
+  username: string
   password: string
   isSave?: boolean
 }
