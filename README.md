@@ -12,7 +12,7 @@ Getting Started
 - link http://localhost:8000/
 
 Running the tests
-- yarn test
+- yarn test - Not apply yet
 
 Built With
 - Reactjs
